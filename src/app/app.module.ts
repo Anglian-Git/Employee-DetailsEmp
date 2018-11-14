@@ -1,16 +1,19 @@
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import {  EmployeeService } from './employee.service';
 import { AppComponent } from './app.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
 import { appRoutes } from './routes';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { EmpServiceService } from './emp-service.service';
-import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
+import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
+
+
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
+import { EmpServiceService } from './emp-service.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,10 +21,11 @@ import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common
     EmployeeDetailsComponent
   ],
   imports: [
-    BrowserModule, FormsModule, ReactiveFormsModule,
+    BrowserModule, FormsModule, ReactiveFormsModule, HttpModule, HttpClientModule,
+
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [EmployeeService ],
+  providers: [EmpServiceService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

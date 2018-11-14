@@ -33,9 +33,5 @@ export class EmployeeDetailsComponent implements OnInit {
           console.log(this.event);
         });
     });
-    // if (this.event == null) {
-    //   this.router.navigate([`/employee`]);
-    //   alert("id doesn't exist");
-    // }
   }
 }

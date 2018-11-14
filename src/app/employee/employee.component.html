@@ -1,17 +1,32 @@
-
-
-      <div class="container-fluid " style="background-color: #DDF1F3">
-      <form [formGroup]="eform">
-      <div class="wrap" >
-        <h5 class="text-center" style="color: #00B4CC"> Search for Employee Details</h5>
-         <div class="input-group">
-          <input type="text" class="form-control"  formControlName="id" [(ngModel)]="id" placeholder="Enter Employee Id"> 
-           <button [routerLink]="['/employee-details', id]" class="input-group-addon " type="submit" [disabled]="!eform.valid" class="btn btn-primary" >
-               <i class="fa fa-search"></i>
-             </button>
-      </div> 
-     </div>
-      </form>
+<div class="container-fluid " style="background-color: #DDF1F3">
+  <form [formGroup]="eform">
+    <div class="wrap">
+      <h5 class="text-center" style="color: #00B4CC">
+        Search for Employee Details
+      </h5>
+      <div class="input-group">
+        <input
+          type="text"
+          class="form-control"
+          formControlName="id"
+          [(ngModel)]="id"
+          placeholder="Enter Employee Id"
+        />
+        <span
+          class="font-small text-danger"
+          *ngIf="showErrorText && !eform.get('id').valid"
+          >Please enter Employee id</span
+        >
+        <button
+          [routerLink]="['/employee-details', id]"
+          class="input-group-addon "
+          type="submit"
+          [disabled]="!eform.valid"
+          class="btn btn-primary"
+        >
+          <i class="fa fa-search"></i>
+        </button>
+      </div>
+    </div>
+  </form>
 </div>
- 
-       
